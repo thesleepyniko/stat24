@@ -1,0 +1,45 @@
+<body class="landing-page">
+    <% if @photo.present? %>
+        <div>
+            <img src="https://tico09.com<%= @photo %>" class="random-image-landing">
+            <div>
+                <p class="photo-subtitle">Photo by <%= @author %> via 24SPY Photos
+                <% if (@acft != "Default") && @acft != nil %>
+                <br>
+                <%= @acft %> depicted
+                <% end %>
+                </p>
+            </div>
+        </div>
+    <% end %>
+    <section class="title">
+        <h1>24Stats</h1>
+        <p>Beautiful ATC24 <span class="scribble">stats and tracking</span>, <br> <span class="scribble">wherever your flight takes you.</span></p>
+        <%= link_to "Get Started", login_path %>
+    </section>
+    <section class="info">
+        <h2>Track your flights with ease</h2>
+        <p>Automatic flight tracking means you'll never miss a log ever again. 24Stats will also pull ATIS data, and optionally, record all ATC communications during your flight.</p>
+    </section>
+    <section class="info">
+        <h2>See your progression</h2>
+        <p>Track your flights, see what airports were your favorite, and see what aircraft you flew the most. </p>
+    </section>
+    <section class="info">
+        <h2>Share it with the world</h2>
+        <p>Want to share a flight in progress, or perhaps show off your statistics? No worries, 24Stats has that covered for you.</p>
+    </section>
+    <section class="footer">
+        <p>Made possible thanks to the contributors on GitHub.</p>
+        <p>This website and its code are licensed under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPLv3 License.</a>
+            <br>
+            Its code is made available here, along with a copy of the License.
+        </p>
+        <p>
+            Text is licensed under CC BY-SA 4.0. Images belong to their respective authors.
+        </p>
+        <p>
+            Many thanks to those who take the time to maintain the 24Data API, as this would not be possible without it!
+        </p>
+    </section>
+</body>

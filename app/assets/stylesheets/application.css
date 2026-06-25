@@ -1,0 +1,174 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+*/
+
+/* fonts */
+
+/* does both IBM Plex Sans and Jersey 25*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+25&display=swap');
+
+/* app wide */
+
+:root {
+    --gutter: clamp(1rem, 3vw, 2rem);
+    --bg: #000;
+    --text: #fff;
+    --link: #89b4fa;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+a {
+    color: #89b4fa;
+}
+
+a:hover {
+    color: #b4befe;
+}
+
+a:active {
+    color: #f5e0dc;
+}
+
+/*
+ * Scribble underline effect
+ * Copyright (c) 2026 Javier Artero
+ * https://codepen.io/JavierArtero/pen/ZYzyQEj
+ * Licensed under the MIT License.
+ */
+
+.scribble {
+  position: relative;
+  background-image: none;
+  background-color: transparent;
+  color: #fff;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    height: 30%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='247' height='22' fill='none'%3E%3Cmask id='a' width='246' height='23' x='0' y='1' maskUnits='userSpaceOnUse' style='mask-type:alpha'%3E%3Cpath fill='%23D9D9D9' d='M0 1h246v23H0z'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%2300a661' d='M.225 13.987c40.77-3.247 81.218-6.304 122.486-5.61 40.217.68 80.07 3.493 119.823 8.284 4.828.577 4.966-4.727.193-5.301-40.597-4.886-82.029-7.082-123.059-6.436-39.896.627-80.713 2.548-119.53 8.822-.233.04-.132.263.087.25v-.009z'/%3E%3C/g%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      currentcolor 40%,
+      transparent 50%
+    );
+    background-repeat: no-repeat;
+    background-size: 300%
+  }
+}
+
+/* landing page */
+
+.random-image-landing {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: -14vh;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 80%);
+    display: block;
+}
+
+.landing-page h1 {
+    margin: 0 0 0.5rem;
+    font-family: "Jersey 25", sans-serif;
+    font-size: clamp(3rem, 9vw, 7rem);
+}
+
+.landing-page p {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0 0 1.5rem;
+}
+
+.landing-page .photo-subtitle {
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    display: block;
+    text-align: right;
+    margin-top: 6vh;
+    margin-bottom: -2vh;
+    margin-inline: var(--gutter);
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.landing-page .photo-subtitle:hover {
+    opacity: 1;
+}
+
+.landing-page button {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    background-color: #f5a97f;
+    color: rgb(54, 58, 79);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.landing-page button:hover {
+    background-color: rgb(253, 185, 149);
+    cursor: pointer;
+}
+
+.landing-page .info h2 {
+    margin: 0 0 0.5rem;
+    font-family: "Jersey 25", sans-serif;
+    font-size: clamp(1rem, 4vw, 3rem);
+}
+
+.landing-page .info {
+    margin-right: var(--gutter);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: var(--gutter);
+    width: 60vw;
+}
+
+.landing-page .title {
+    margin-right: var(--gutter);
+    margin-left: var(--gutter);
+}
+
+.landing-page .footer {
+    border-top: solid;
+    border-top-width: 1px;
+    border-top-color: #c6a0f6;
+}
+
+.landing-page .footer * {
+    margin-right: var(--gutter);
+    margin-left: var(--gutter);
+    margin-top: 1rem;
+}
+
+.landing-page .footer a {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+
+.landing-page .footer p {
+    font-size: 0.85rem;
+}
