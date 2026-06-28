@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: MyString
+  uid: MyString
+  username: MyString
+  avatar_url: MyString
+  onboarding_complete: false
+  timezone: MyString
+  units: MyString
+  public_profile: false
+
+two:
+  provider: MyString
+  uid: MyString
+  username: MyString
+  avatar_url: MyString
+  onboarding_complete: false
+  timezone: MyString
+  units: MyString
+  public_profile: false

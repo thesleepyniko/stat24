@@ -15,7 +15,10 @@
     <section class="title">
         <h1>24Stats</h1>
         <p>Beautiful ATC24 <span class="scribble">stats and tracking</span>, <br> <span class="scribble">wherever your flight takes you.</span></p>
-        <%= link_to "Get Started", login_path %>
+        <%= button_to "Get Started", "/auth/discord", data: { turbo: false } %>
+        <% if Rails.env.development?%>
+            <%= button_to "Dev Login", "/auth/developer", data: { turbo: false } %>
+        <% end %>
     </section>
     <section class="info">
         <h2>Track your flights with ease</h2>

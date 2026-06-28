@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def index
     @photo = Rails.cache.read("random_photo")
     if @photo == nil
       @photo = ""
