@@ -63,6 +63,7 @@ end
 #   end
 # end
 
+# omniauth hash stuff
 # provider (required) - The provider with which the user authenticated (e.g. 'twitter' or 'facebook')
 # uid (required) - An identifier unique to the given provider, such as a Twitter user ID. Should be stored as a string.
 # info (required) - A hash containing information about the user
