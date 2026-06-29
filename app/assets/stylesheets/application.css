@@ -74,9 +74,13 @@ a:active {
   }
 }
 
+.text-24 {
+    color: #EAC746
+}
+
 /* landing page */
 
-.random-image-landing {
+.landing-page .random-image {
     width: 100%;
     height: 50vh;
     margin-bottom: -14vh;
@@ -148,6 +152,13 @@ a:active {
 .landing-page .title {
     margin-right: var(--gutter);
     margin-left: var(--gutter);
+}
+.landing-page .title .no-margin-p {
+    margin-bottom: 0;
+}
+.landing-page .title .subtitle {
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    opacity: 0.7;
 }
 
 .landing-page .footer {

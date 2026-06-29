@@ -14,7 +14,7 @@ class RandomImageJob < ApplicationJob
         body = response.body
         body_json = JSON.parse(body)
         photos = body_json["photos"]
-        random_photo = photos.sample
+        random_photo= photos.sample
         Rails.cache.write("random_photo", random_photo)
       end
     end

@@ -1,3 +1,37 @@
-<%= form_tag('/auth/developer', method: 'post', data: {turbo: false}) do %>
-  <button type='submit'>Login with Developer</button>
+<% if Rails.env.development? && params[:dev]  %>
+    <%# so that on development this doesn't accidentally trigger %>
+    <%= form_tag('/auth/developer', method: 'post', data: {turbo: false}) do %>
+    <button type='submit'>Login with Developer</button>
+    <% end %>
 <% end %>
+
+<div class="login-page">
+    <div class="login-content">
+        <h1>24Stats</h1>
+    </div>
+    <% if @photo.present? %>
+        <div>
+            <img src="https://tico09.com<%= @photo %>" class="random-image-landing">
+            <div>
+                <p class="photo-subtitle">Photo by <%= @author %> via 24SPY Photos
+                <% if (@acft != "Default") && @acft != nil %>
+                <br>
+                <%= @acft %> depicted
+                <% end %>
+                </p>
+            </div>
+        </div>
+    <% else %>
+        <div>
+            <img src="https://tico09.com/photos/api/images/B747/DLH/1754255537324_1015269686394507316.webp" class="random-image">
+            <div>
+                <p class="photo-subtitle">Photo by <%= @author %> via 24SPY Photos
+                <% if (@acft != "Default") && @acft != nil %>
+                <br>
+                <%= @acft %> depicted
+                <% end %>
+                </p>
+            </div>
+        </div>
+    <% end %>
+</div>

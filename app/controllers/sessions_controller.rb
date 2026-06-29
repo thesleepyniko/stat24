@@ -6,15 +6,17 @@ class SessionsController < ApplicationController
   def create
     user = request.env["omniauth.auth"]
     user_info = user["info"]
-    User.new(
-      provider: user["provider"], # should be discord, unless it was via /auth/dev
-      uid: user["uid"],
-      username: user_info["nickname"], # nickname is actually the username
-      avatar_url: user_info["image"],
-      units: "metric",
-      public_profile: false,
-      onboarding_complete: false
-    )
+    user = User.find_or_create_by(uid: user["uid"]) do |u|
+        u.provider = user["provider"] # should be discord, unless it was via /auth/dev
+        u.uid = user["uid"]
+        u.username = user_info["nickname"] # nickname is actually the username
+        u.avatar_url = user_info["image"]
+        u.units = "metric"
+        u.public_profile = false
+        u.onboarding_complete = false
+    end
+    session[:user_id] = user.id
+    redirect_to onboarding_path
   end
 end
 
