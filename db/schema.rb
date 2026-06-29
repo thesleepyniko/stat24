@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_29_051942) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_29_180222) do
   create_table "user_sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "expires_at", null: false
@@ -23,11 +23,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_29_051942) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "access_level", default: 0, null: false
     t.string "avatar_url"
+    t.boolean "consent", default: false, null: false
     t.datetime "created_at", null: false
     t.boolean "onboarding_complete"
     t.string "provider"
     t.boolean "public_profile"
+    t.integer "referral"
+    t.integer "role"
     t.string "timezone"
     t.string "uid"
     t.string "units"

@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       u.public_profile = false
       u.onboarding_complete = false
     end
-    if !existing_remember_me && remember_me 
+    if !existing_remember_me && remember_me
       raw_token = SecureRandom.hex(16)
       remember_me_obj = UserSession.find_or_create_by(user: user) do |u|
         u.token_digest = Digest::SHA256.hexdigest(raw_token)

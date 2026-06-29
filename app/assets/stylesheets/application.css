@@ -53,6 +53,26 @@ p {
     margin: 0 0 1.5rem;
 }
 
+.primary-btn {
+    display: inline-block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    background-color: #f5a97f;
+    color: #2B2B2B;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.primary-btn:hover {
+    color: #2B2B2B;
+    background-color: rgb(253, 185, 149);
+    cursor: pointer;
+}
+
 /*
  * Scribble underline effect
  * Copyright (c) 2026 Javier Artero

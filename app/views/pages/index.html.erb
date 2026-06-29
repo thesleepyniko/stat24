@@ -16,7 +16,7 @@
         <h1>Stats<span class="text-24">24</span></h1>
         <p class="no-margin-p subtitle" >The solution to "Can I use Volanta with ATC24?" </p>
         <p>Beautiful ATC24 <span class="scribble">stats and tracking</span>, <br> <span class="scribble">wherever your flight takes you.</span></p>
-        <%= button_to "Get Started", "/auth/discord", data: { turbo: false } %>
+        <%= link_to "Get Started", "/login", class: "primary-btn", data: { turbo: false } %>
         <% if Rails.env.development? && params[:dev] %>
             <%= button_to "Dev Login", "/auth/developer", data: { turbo: false } %>
         <% end %>
