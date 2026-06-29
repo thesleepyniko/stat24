@@ -2,10 +2,10 @@
 
 one:
   user: one
-  token: MyString
+  token_digest: <%= Digest::SHA256.hexdigest("token_one") %>
   expires_at: 2026-06-28 22:08:47
 
 two:
   user: two
-  token: MyString
+  token_digest: <%= Digest::SHA256.hexdigest("token_two") %>
   expires_at: 2026-06-28 22:08:47
