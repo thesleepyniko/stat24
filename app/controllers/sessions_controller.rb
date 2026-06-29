@@ -1,22 +1,50 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login
+
   def new
+    @photo = Rails.cache.read("random_photo")
+    if @photo == nil
+      @photo = ""
+    else
+      @author = @photo["author"]
+      @acft = @photo["airline"]
+      @photo = @photo["url"]
+    end
     render :new
   end
 
   def create
     user = request.env["omniauth.auth"]
     user_info = user["info"]
-    user = User.find_or_create_by(uid: user["uid"]) do |u|
-        u.provider = user["provider"] # should be discord, unless it was via /auth/dev
-        u.uid = user["uid"]
-        u.username = user_info["nickname"] # nickname is actually the username
-        u.avatar_url = user_info["image"]
-        u.units = "metric"
-        u.public_profile = false
-        u.onboarding_complete = false
+    remember_me = request.env["omniauth.params"]["remember_me"] # will return either a 1 or will be nil
+    existing_remember_me = cookies.encrypted["remember_me"]
+    user = User.find_or_create_by(provider: user["provider"], uid: user["uid"]) do |u|
+      u.provider = user["provider"] # should be discord, unless it was via /auth/dev
+      u.uid = user["uid"]
+      u.username = user_info["nickname"] # nickname is actually the username
+      u.avatar_url = user_info["image"]
+      u.units = "metric"
+      u.public_profile = false
+      u.onboarding_complete = false
+    end
+    if !existing_remember_me && remember_me 
+      raw_token = SecureRandom.hex(16)
+      remember_me_obj = UserSession.find_or_create_by(user: user) do |u|
+        u.token_digest = Digest::SHA256.hexdigest(raw_token)
+        u.expires_at = DateTime.now + 14
+        u.user_agent = request.user_agent
+      end
+      if !remember_me_obj.save
+        raise "Attempted to save new token and failed"
+      end
+      cookies.encrypted["remember_me"] = raw_token
     end
     session[:user_id] = user.id
-    redirect_to onboarding_path
+    if user.onboarding_complete?
+      # redirect to the main page
+    else
+      redirect_to onboarding_path
+    end
   end
 end
 

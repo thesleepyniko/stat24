@@ -1,23 +1,36 @@
 <% if Rails.env.development? && params[:dev]  %>
     <%# so that on development this doesn't accidentally trigger %>
     <%= form_tag('/auth/developer', method: 'post', data: {turbo: false}) do %>
-    <button type='submit'>Login with Developer</button>
+        <button type='submit'>Login with Developer</button>
+        <%= label_tag :remember_me do %>
+            <%= check_box_tag :remember_me, "1" %> Remember me
+        <% end %>
     <% end %>
 <% end %>
 
 <div class="login-page">
     <div class="login-content">
-        <h1>24Stats</h1>
+        <h1>Stats<span class="text-24">24</span></h1>
+        <p>Welcome! To get started, login with your Discord account.</p>
+        <%= form_tag('/auth/discord', method: 'post', data: {turbo: false}, class: "login-form") do %>
+            <button type='submit'>
+                <%= image_tag "Discord-Symbol-White.svg", alt: "" %>
+                <span>Login with Discord</span>
+            </button>
+            <%= label_tag :remember_me do %>
+                <%= check_box_tag :remember_me, "1" %> Remember me
+            <% end %>
+        <% end %>
     </div>
     <% if @photo.present? %>
         <div>
             <img src="https://tico09.com<%= @photo %>" class="random-image-landing">
             <div>
                 <p class="photo-subtitle">Photo by <%= @author %> via 24SPY Photos
-                <% if (@acft != "Default") && @acft != nil %>
-                <br>
-                <%= @acft %> depicted
-                <% end %>
+                    <% if (@acft != "Default") && @acft != nil %>
+                    <br>
+                    <%= @acft %> depicted
+                    <% end %>
                 </p>
             </div>
         </div>
@@ -25,11 +38,9 @@
         <div>
             <img src="https://tico09.com/photos/api/images/B747/DLH/1754255537324_1015269686394507316.webp" class="random-image">
             <div>
-                <p class="photo-subtitle">Photo by <%= @author %> via 24SPY Photos
-                <% if (@acft != "Default") && @acft != nil %>
+                <p class="photo-subtitle">Photo by oliiiiveeer via 24SPY Photos
                 <br>
-                <%= @acft %> depicted
-                <% end %>
+                B747 / DLH depicted
                 </p>
             </div>
         </div>

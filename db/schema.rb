@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_29_020847) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_29_051942) do
   create_table "user_sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "expires_at", null: false
-    t.string "token", null: false
+    t.string "token_digest", null: false
     t.datetime "updated_at", null: false
     t.string "user_agent"
     t.integer "user_id", null: false
-    t.index ["token"], name: "index_user_sessions_on_token", unique: true
+    t.index ["token_digest"], name: "index_user_sessions_on_token_digest", unique: true
     t.index ["user_id"], name: "index_user_sessions_on_user_id"
   end
 

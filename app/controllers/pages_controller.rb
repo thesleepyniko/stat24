@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :require_login
+  
   def index
     @photo = Rails.cache.read("random_photo")
     if @photo == nil

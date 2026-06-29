@@ -41,6 +41,18 @@ a:active {
     color: #f5e0dc;
 }
 
+h1 {
+    margin: 0 0 0.5rem;
+    font-family: "Jersey 25", sans-serif;
+    font-size: clamp(3rem, 9vw, 7rem);
+}
+
+p {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0 0 1.5rem;
+}
+
 /*
  * Scribble underline effect
  * Copyright (c) 2026 Javier Artero
@@ -88,18 +100,6 @@ a:active {
     mask-image: linear-gradient(to bottom, black 40%, transparent 80%);
     -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 80%);
     display: block;
-}
-
-.landing-page h1 {
-    margin: 0 0 0.5rem;
-    font-family: "Jersey 25", sans-serif;
-    font-size: clamp(3rem, 9vw, 7rem);
-}
-
-.landing-page p {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    margin: 0 0 1.5rem;
 }
 
 .landing-page .photo-subtitle {
@@ -153,6 +153,7 @@ a:active {
     margin-right: var(--gutter);
     margin-left: var(--gutter);
 }
+
 .landing-page .title .no-margin-p {
     margin-bottom: 0;
 }
@@ -164,7 +165,7 @@ a:active {
 .landing-page .footer {
     border-top: solid;
     border-top-width: 1px;
-    border-top-color: #c6a0f6;
+    border-top-color: #fff;
 }
 
 .landing-page .footer * {
@@ -182,4 +183,99 @@ a:active {
 
 .landing-page .footer p {
     font-size: 0.85rem;
+}
+
+/* login page */
+
+.login-page {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.login-page img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-page > div:last-child {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+}
+
+.login-page .photo-subtitle {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1;
+    margin: 0;
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    opacity: 0.85;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    text-align: right;
+}
+
+.login-page .random-image-landing,
+.login-page .random-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.login-form button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35em;
+    white-space: nowrap;
+}
+
+.login-form button img {
+    height: 1.2em;
+    width: auto;
+}
+
+.login-content {
+    flex: 1;
+    align-self: center;
+    align-items: center;
+    justify-items: left;
+    margin-left: var(--gutter);
+    margin-right: var(--gutter);
+}
+
+.login-content button {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    background-color: #5865F2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    opacity: 0.9;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.login-content button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.login-content label {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.login-content input {
+    margin-top: 0.5rem;
+    margin-left: 0;
 }
