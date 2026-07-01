@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
 
   get "/onboarding", to: "onboarding#index"
+  patch "/onboarding", to: "onboarding#update"
 end

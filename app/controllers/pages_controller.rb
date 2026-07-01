@@ -10,5 +10,10 @@ class PagesController < ApplicationController
       @acft = @photo["airline"]
       @photo = @photo["url"]
     end
+    # testing flashes, try not to comment this out in dev unless you need to spot check
+    # flash.now[:error] = "test"
+    # flash.now[:notice] = "test, notice"
+    # flash.now[:success] = "test, success"
+    # flash.now[:warning] = "test, warning"
   end
 end

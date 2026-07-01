@@ -110,6 +110,52 @@ p {
     color: #EAC746
 }
 
+/* flash messages */
+
+.flash {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    border-left: 4px solid;
+    margin-left: var(--gutter);
+    margin-bottom: 0.25rem;
+    margin-top: 0.25rem;
+    z-index: 999;
+}
+
+.flash-error,
+.flash-alert {
+    background-color: #3a2530;
+    border-left-color: #f38ba8;
+    color: #cad3f5;
+}
+
+.flash-warning {
+    background-color: #3a352a;
+    border-left-color: #f9e2af;
+    color: #cad3f5;
+}
+
+.flash-notice,
+.flash-info {
+    background-color: #262f3f;
+    border-left-color: #89b4fa;
+    color: #cad3f5;
+}
+
+.flash-success {
+    background-color: #29382a;
+    border-left-color: #a6e3a1;
+    color: #cad3f5;
+}
+
+.flash-container {
+    position: absolute;
+    top: 1rem;
+    z-index: 999;
+}
+
 /* landing page */
 
 .landing-page .random-image {
